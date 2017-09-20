@@ -8,7 +8,7 @@ testing-framework
 To utilise this library add this to your sbt build file
 
 ```sbtshell
-"com.cjww-dev.libs" % "testing-framework_2.11" % "2.7.0" 
+"com.cjww-dev.libs" % "testing-framework_2.11" % "0.1.0" 
 ```
 
 ## About
