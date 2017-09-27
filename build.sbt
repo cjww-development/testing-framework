@@ -28,7 +28,10 @@ scalaVersion := "2.11.11"
 organization := "com.cjww-dev.libs"
 
 libraryDependencies ++= Seq(
-  "org.scalatestplus.play" % "scalatestplus-play_2.11" % "2.0.1"
+  "org.scalatestplus.play" % "scalatestplus-play_2.11"  % "2.0.1",
+  "org.mockito"            % "mockito-core"             % "2.10.0",
+  "org.reactivemongo"      % "play2-reactivemongo_2.11" % "0.11.14",
+  "com.github.tomakehurst" % "wiremock"                 % "2.8.0"
 )
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
