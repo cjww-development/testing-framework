@@ -26,7 +26,7 @@ import org.scalatestplus.play.PlaySpec
 import play.api.http.{HeaderNames, HttpProtocol, MimeTypes, Status}
 import play.api.test._
 
-trait ComponentSpec
+trait BaseComponentSpec
   extends PlaySpec
     with MockitoSugar
     with BeforeAndAfterEach
