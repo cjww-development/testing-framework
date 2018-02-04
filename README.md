@@ -13,7 +13,7 @@ To utilise this library add this to your sbt build file
 
 ## About
 
-Placeholder
+Contains useful utilities for Component/Unit testing and integration testing
 
 ### License
 

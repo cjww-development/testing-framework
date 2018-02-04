@@ -14,7 +14,17 @@
  *  limitations under the License.
  */
 
-addSbtPlugin("com.typesafe.sbt"   % "sbt-native-packager"   % "1.2.0")
-addSbtPlugin("com.typesafe.play"  % "sbt-plugin"            % "2.5.16")
-addSbtPlugin("me.lessis"          % "bintray-sbt"           % "0.3.0")
-addSbtPlugin("com.github.gseitz"  % "sbt-release"           % "1.0.3")
+package com.cjwwdev.integrationtest.http
+
+import org.scalatestplus.play.guice.GuiceOneServerPerSuite
+import play.api.libs.ws.{WSClient, WSRequest}
+
+trait HttpCalls {
+  self: GuiceOneServerPerSuite =>
+
+  lazy val ws = app.injector.instanceOf(classOf[WSClient])
+
+  val baseUrl: String
+
+  def client(url: String): WSRequest = ws.url(url)
+}
