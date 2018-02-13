@@ -27,7 +27,7 @@ val btVersion: String = Try(ConfigFactory.load.getString("version")) match {
 val dependencies = Seq(
   "org.scalatestplus.play" % "scalatestplus-play_2.11"  % "2.0.1",
   "org.mockito"            % "mockito-core"             % "2.13.0",
-  "org.reactivemongo"      % "play2-reactivemongo_2.11" % "0.11.14",
+  "org.reactivemongo"     %% "play2-reactivemongo"      % "0.12.6-play25",
   "com.github.tomakehurst" % "wiremock"                 % "2.8.0"
 )
 

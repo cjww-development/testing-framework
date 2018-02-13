@@ -1,19 +1,24 @@
 [![Apache-2.0 license](http://img.shields.io/badge/license-Apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![Build Status](https://travis-ci.org/cjww-development/testing-framework.svg?branch=master)](https://travis-ci.org/cjww-development/testing-framework)
 [ ![Download](https://api.bintray.com/packages/cjww-development/releases/testing-framework/images/download.svg) ](https://bintray.com/cjww-development/releases/testing-framework/_latestVersion)
 
 testing-framework
 =================
 
-To utilise this library add this to your sbt build file
+To utilise this library add this to your sbt build file.
 
 ```sbtshell
-"com.cjww-dev.libs" % "testing-framework_2.11" % "0.1.0" 
+"com.cjww-dev.libs" % "testing-framework_2.11" % "x.x.x" 
+```
+
+To may also need to add this resolver to your sbt build file.
+
+```sbtshell
+resolvers ++= Seq("cjww-dev" at "http://dl.bintray.com/cjww-development/releases")
 ```
 
 ## About
 
-Contains useful utilities for Component/Unit testing and integration testing
+'testing-framework' has been created to provide a 'one stop shop' for everything that you might need when writing unit tests or integration tests in an SBT project or a scala play project.
 
 ### License
 

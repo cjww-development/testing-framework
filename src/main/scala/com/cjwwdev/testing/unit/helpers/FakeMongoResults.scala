@@ -13,35 +13,42 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.cjwwdev.test.mongo
+package com.cjwwdev.testing.unit.helpers
 
-import org.scalatest.mockito.MockitoSugar
 import org.mockito.Mockito.when
+import org.scalatest.mockito.MockitoSugar
 import reactivemongo.api.commands.{UpdateWriteResult, WriteResult}
 
+/**
+  * FakeMongoResults mocks out a [[WriteResult]] and an [[UpdateWriteResult]]
+  *
+  * Four helpers providing a success and failure scenario for [[WriteResult]] and [[UpdateWriteResult]]
+  *
+  * @author Chris J W Walker
+  */
 trait FakeMongoResults {
-  private val mockitoSugar = MockitoSugar
+  self: MockitoSugar =>
 
   def fakeSuccessWriteResult: WriteResult = {
-    val mockWriteResult = mockitoSugar.mock[WriteResult]
+    val mockWriteResult = mock[WriteResult]
     when(mockWriteResult.ok).thenReturn(true)
     mockWriteResult
   }
 
   def fakeFailedWriteResult: WriteResult = {
-    val mockWriteResult = mockitoSugar.mock[WriteResult]
+    val mockWriteResult = mock[WriteResult]
     when(mockWriteResult.ok).thenReturn(false)
     mockWriteResult
   }
 
   def fakeSuccessUpdateWriteResult: UpdateWriteResult = {
-    val mockUpdateWriteResult = mockitoSugar.mock[UpdateWriteResult]
+    val mockUpdateWriteResult = mock[UpdateWriteResult]
     when(mockUpdateWriteResult.ok).thenReturn(true)
     mockUpdateWriteResult
   }
 
   def fakeFailedUpdateWriteResult: UpdateWriteResult = {
-    val mockUpdateWriteResult = mockitoSugar.mock[UpdateWriteResult]
+    val mockUpdateWriteResult = mock[UpdateWriteResult]
     when(mockUpdateWriteResult.ok).thenReturn(false)
     mockUpdateWriteResult
   }
