@@ -23,6 +23,9 @@ import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, BeforeAndAfterEach}
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneServerPerSuite
 
+import scala.concurrent.ExecutionContext
+import scala.concurrent.ExecutionContext.Implicits.global
+
 /**
   * Convenience "super Suite" base class for unit testing.
   *
@@ -52,6 +55,8 @@ trait IntegrationTestSpec
     with StubbedBasicHttpCalls
     with WireMockSetup {
 
+  implicit val ec: ExecutionContext = global.prepare()
+
   override protected def beforeAll(): Unit = {
     super.beforeAll()
     startWm()
@@ -67,6 +72,3 @@ trait IntegrationTestSpec
     stopWm()
   }
 }
-
-
-

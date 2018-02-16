@@ -73,7 +73,6 @@ trait UnitTestSpec
     * Provides mock reactive mongo [[reactivemongo.api.commands.WriteResult]] and [[reactivemongo.api.commands.UpdateWriteResult]]
     */
   object MongoFakes extends FakeMongoResults with MockitoSugar
-
 }
 
 
