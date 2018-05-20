@@ -38,7 +38,7 @@ trait IntegrationApplication extends GuiceOneServerPerSuite {
 
   val currentAppBaseUrl: String
 
-  lazy val ws = app.injector.instanceOf(classOf[WSClient])
+  lazy val ws: WSClient = app.injector.instanceOf(classOf[WSClient])
 
   lazy val testAppUrl = s"http://localhost:$port/$currentAppBaseUrl"
 

@@ -56,7 +56,7 @@ trait JsonValidation {
     def mustHaveErrors(expectedErrors: Map[JsPath, Seq[ValidationError]]): Unit = jsResult match {
       case JsSuccess(data, _) => fail(s"read should have failed and didn't - reads produced $data")
       case JsError(errors)    => for((path, errs) <- errors) {
-        expectedErrors.keySet must contain(path)
+        expectedErrors.keySet must   contain(path)
         expectedErrors(path)  mustBe errs
       }
     }

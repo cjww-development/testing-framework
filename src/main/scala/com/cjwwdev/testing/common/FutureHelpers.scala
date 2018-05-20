@@ -19,6 +19,7 @@ package com.cjwwdev.testing.common
 import akka.util.Timeout
 import org.scalatest.Assertion
 import org.scalatestplus.play.PlaySpec
+import play.api.mvc.Result
 import play.api.test.{DefaultAwaitTimeout, FutureAwaits}
 
 import scala.concurrent.Future
@@ -48,5 +49,14 @@ trait FutureHelpers extends FutureAwaits with DefaultAwaitTimeout {
     */
   def awaitAndAssert[A](f: => Future[A])(assert: A => Assertion): Assertion = {
     assert(await(f))
+  }
+
+  /**
+    * @param methodUnderTest function that returns type Future[Result]
+    * @param assertions Future[Result] => [[Assertion]]
+    * @return Assertion
+    */
+  def assertFutureResult(methodUnderTest: => Future[Result])(assertions: Future[Result] => Assertion): Assertion = {
+    assertions(methodUnderTest)
   }
 }

@@ -21,20 +21,20 @@ val libraryName = "testing-framework"
 
 val btVersion: String = Try(ConfigFactory.load.getString("version")) match {
   case Success(ver) => ver
-  case Failure(_)   => ""
+  case Failure(_)   => "0.1.0"
 }
 
 val dependencies = Seq(
-  "org.scalatestplus.play" % "scalatestplus-play_2.11"  % "2.0.1",
-  "org.mockito"            % "mockito-core"             % "2.13.0",
-  "org.reactivemongo"     %% "play2-reactivemongo"      % "0.12.6-play25",
-  "com.github.tomakehurst" % "wiremock"                 % "2.8.0"
+  "org.scalatestplus.play" % "scalatestplus-play_2.12"  % "3.1.2",
+  "org.mockito"            % "mockito-core"             % "2.18.3",
+  "org.reactivemongo"     %% "play2-reactivemongo"      % "0.13.0-play26",
+  "com.github.tomakehurst" % "wiremock"                 % "2.17.0"
 )
 
 val library = Project(libraryName, file("."))
   .settings(
     version                              :=  btVersion,
-    scalaVersion                         :=  "2.11.11",
+    scalaVersion                         :=  "2.12.6",
     organization                         :=  "com.cjww-dev.libs",
     resolvers                            +=  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
     libraryDependencies                  ++= dependencies,

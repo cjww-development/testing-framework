@@ -44,7 +44,7 @@ trait FormValidation {
       */
     def mustHaveTheseErrors(errorList: (String, String)*): Unit = {
       if(form.errors.size != errorList.size) {
-        fail("form.errors.size did not equal errorList.size")
+        fail(s"${form.errors.size} did not equal ${errorList.size}")
       } else {
         for((key, msg) <- errorList) {
           val formError = form.error(key).getOrElse(throw new NoSuchElementException(s"No form error found for key $key"))
