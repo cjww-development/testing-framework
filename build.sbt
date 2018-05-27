@@ -28,7 +28,7 @@ val dependencies = Seq(
   "org.scalatestplus.play" % "scalatestplus-play_2.12"  % "3.1.2",
   "org.mockito"            % "mockito-core"             % "2.18.3",
   "org.reactivemongo"     %% "play2-reactivemongo"      % "0.13.0-play26",
-  "com.github.tomakehurst" % "wiremock"                 % "2.17.0"
+  "com.github.tomakehurst" % "wiremock"                 % "2.8.0"
 )
 
 val library = Project(libraryName, file("."))

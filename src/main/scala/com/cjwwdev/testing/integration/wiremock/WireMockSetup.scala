@@ -28,8 +28,8 @@ import com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig
   * @author Chris J W Walker
   */
 trait WireMockSetup {
-  val wiremockPort = 11111
-  val testingHost = "localhost"
+  val wiremockPort = Ports.getRandomPort
+  val testingHost  = "localhost"
   val wiremockUrl  = s"http://$testingHost:$wiremockPort"
 
   private val wireMockServer = new WireMockServer(
