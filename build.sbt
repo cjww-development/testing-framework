@@ -24,11 +24,13 @@ val btVersion: String = Try(ConfigFactory.load.getString("version")) match {
   case Failure(_)   => "0.1.0"
 }
 
+val jettyVersion         = "9.2.13.v20150730"
+
 val dependencies = Seq(
-  "org.scalatestplus.play" % "scalatestplus-play_2.12"  % "3.1.2",
-  "org.mockito"            % "mockito-core"             % "2.18.3",
-  "org.reactivemongo"     %% "play2-reactivemongo"      % "0.13.0-play26",
-  "com.github.tomakehurst" % "wiremock"                 % "2.8.0"
+  "org.scalatestplus.play" % "scalatestplus-play_2.12" % "3.0.0",
+  "org.mockito"            % "mockito-core"            % "2.18.3",
+  "org.reactivemongo"     %% "play2-reactivemongo"     % "0.13.0-play26",
+  "com.github.tomakehurst" % "wiremock-standalone"     % "2.17.0"
 )
 
 val library = Project(libraryName, file("."))

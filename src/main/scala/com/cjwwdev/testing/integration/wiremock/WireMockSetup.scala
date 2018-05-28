@@ -19,6 +19,7 @@ package com.cjwwdev.testing.integration.wiremock
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig
+import org.slf4j.{Logger, LoggerFactory}
 
 /**
   * WireMock sets up wire mock port and host along with a wire mock server
@@ -32,12 +33,15 @@ trait WireMockSetup {
   val testingHost  = "localhost"
   val wiremockUrl  = s"http://$testingHost:$wiremockPort"
 
-  private val wireMockServer = new WireMockServer(
+  private val logger: Logger = LoggerFactory.getLogger(getClass)
+
+  private val wireMockServer =new WireMockServer(
     wireMockConfig()
       .port(wiremockPort)
   )
 
   protected def startWm(): Unit = {
+    logger.info(s"[startWm] - Starting wiremock server on port $wiremockPort")
     wireMockServer.start()
     WireMock.configureFor(testingHost, wiremockPort)
   }
