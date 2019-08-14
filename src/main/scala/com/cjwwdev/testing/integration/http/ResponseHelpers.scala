@@ -66,7 +66,7 @@ trait ResponseHelpers extends Status with MimeTypes with HeaderNames {
     * @param resp WSResponse
     * @return Map[String, Seq[String] ]
     */
-  def headersOf(resp: WSResponse): Map[String, Seq[String]] = resp.allHeaders
+  def headersOf(resp: WSResponse): Map[String, scala.collection.Seq[String]] = resp.headers
 
   /**
     * @param key String
@@ -79,7 +79,7 @@ trait ResponseHelpers extends Status with MimeTypes with HeaderNames {
     * @param resp WSResponse
     * @return Seq[WSCookie]
     */
-  def cookiesOf(resp: WSResponse): Seq[WSCookie] = resp.cookies
+  def cookiesOf(resp: WSResponse): scala.collection.Seq[WSCookie] = resp.cookies
 
   /**
     * @param resp WSResponse

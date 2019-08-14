@@ -16,7 +16,7 @@
 package com.cjwwdev.testing.unit.helpers
 
 import org.mockito.Mockito.when
-import org.scalatest.mockito.MockitoSugar
+import org.scalatestplus.mockito.MockitoSugar
 import reactivemongo.api.commands.{UpdateWriteResult, WriteResult}
 
 /**

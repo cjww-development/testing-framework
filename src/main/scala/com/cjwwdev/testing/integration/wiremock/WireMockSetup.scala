@@ -35,7 +35,7 @@ trait WireMockSetup {
 
   private val logger: Logger = LoggerFactory.getLogger(getClass)
 
-  private val wireMockServer =new WireMockServer(
+  private val wireMockServer = new WireMockServer(
     wireMockConfig()
       .port(wiremockPort)
   )

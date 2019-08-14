@@ -32,5 +32,5 @@ import play.api.i18n.MessagesApi
 trait FakeAppPerTest extends GuiceOneAppPerTest {
   self: UnitTestSpec =>
 
-  implicit lazy val testMessagesApi: MessagesApi = app.injector.instanceOf(classOf[MessagesApi])
+  implicit lazy val testMessagesApi: MessagesApi = app.injector.instanceOf[MessagesApi]
 }

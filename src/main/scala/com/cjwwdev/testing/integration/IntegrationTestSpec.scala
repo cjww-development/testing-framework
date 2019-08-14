@@ -24,6 +24,7 @@ import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneServerPerSuite
 
 import scala.concurrent.ExecutionContext
+import scala.concurrent.ExecutionContext.Implicits
 import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
@@ -55,7 +56,7 @@ trait IntegrationTestSpec
     with StubbedBasicHttpCalls
     with WireMockSetup {
 
-  implicit val ec: ExecutionContext = global.prepare()
+  implicit val ec: ExecutionContext = Implicits.global
 
   override protected def beforeAll(): Unit = {
     super.beforeAll()

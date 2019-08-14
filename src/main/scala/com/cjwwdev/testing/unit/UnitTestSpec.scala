@@ -19,13 +19,13 @@ package com.cjwwdev.testing.unit
 import com.cjwwdev.testing.common.{FormValidation, FutureHelpers, JsonValidation}
 import com.cjwwdev.testing.unit.helpers.FakeMongoResults
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, BeforeAndAfterEach}
-import org.scalatest.mockito.MockitoSugar
+import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play.PlaySpec
 import play.api.http.{HeaderNames, HttpProtocol, MimeTypes, Status}
 import play.api.test._
 
 import scala.concurrent.ExecutionContext
-import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.ExecutionContext.Implicits
 
 /**
   * Convenience "super Suite" base class for unit testing.
@@ -67,7 +67,7 @@ trait UnitTestSpec
     * try importing scala.concurrent.ExecutionContext.Implicits.global
     * @return [[ExecutionContext]]
     */
-  implicit val ec: ExecutionContext = global.prepare()
+  implicit val ec: ExecutionContext = Implicits.global
 
   /**
     * Provides mock reactive mongo [[reactivemongo.api.commands.WriteResult]] and [[reactivemongo.api.commands.UpdateWriteResult]]

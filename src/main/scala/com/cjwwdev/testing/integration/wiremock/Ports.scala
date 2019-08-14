@@ -18,11 +18,14 @@ package com.cjwwdev.testing.integration.wiremock
 
 import java.net.ServerSocket
 
+import org.slf4j.LoggerFactory
 import play.api.Logger
 
 import scala.annotation.tailrec
 
 object Ports {
+  private val logger = LoggerFactory.getLogger(getClass)
+
   val rnd       = new scala.util.Random
   val range     = 8000 to 39999
   val usedPorts = List[Int]()
@@ -32,11 +35,11 @@ object Ports {
     case 8080 => getRandomPort
     case 8090 => getRandomPort
     case port => if(available(port)) {
-      Logger.debug(s"Taking port: $port")
+      logger.debug(s"Taking port: $port")
       usedPorts :+ port
       port
     } else {
-      Logger.debug(s"Port $port is in use, trying another")
+      logger.debug(s"Port $port is in use, trying another")
       getRandomPort
     }
   }
