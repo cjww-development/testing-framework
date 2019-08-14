@@ -7,7 +7,7 @@ testing-framework
 To utilise this library add this to your sbt build file.
 
 ```sbtshell
-"com.cjww-dev.libs" % "testing-framework_2.11" % "x.x.x" 
+"com.cjww-dev.libs" % "testing-framework_2.13" % "x.x.x" 
 ```
 
 To may also need to add this resolver to your sbt build file.
@@ -15,6 +15,11 @@ To may also need to add this resolver to your sbt build file.
 ```sbtshell
 resolvers ++= Seq("cjww-dev" at "http://dl.bintray.com/cjww-development/releases")
 ```
+| Major Version | Scala Version |
+|---------------|---------------|
+| 1.x.x - 2.x.x | 2.11.x        |
+| 3.x.x.        | 2.12.x        |
+| 4.x.x         | 2.13.x        |
 
 ## About
 

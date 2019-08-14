@@ -1,28 +1,30 @@
 /*
- *  Copyright 2018 CJWW Development
+ * Copyright 2019 CJWW Development
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 package com.cjwwdev.testing.integration.wiremock
 
 import java.net.ServerSocket
 
+import org.slf4j.LoggerFactory
 import play.api.Logger
 
 import scala.annotation.tailrec
 
 object Ports {
+  private val logger = LoggerFactory.getLogger(getClass)
+
   val rnd       = new scala.util.Random
   val range     = 8000 to 39999
   val usedPorts = List[Int]()
@@ -32,11 +34,11 @@ object Ports {
     case 8080 => getRandomPort
     case 8090 => getRandomPort
     case port => if(available(port)) {
-      Logger.debug(s"Taking port: $port")
+      logger.debug(s"Taking port: $port")
       usedPorts :+ port
       port
     } else {
-      Logger.debug(s"Port $port is in use, trying another")
+      logger.debug(s"Port $port is in use, trying another")
       getRandomPort
     }
   }
